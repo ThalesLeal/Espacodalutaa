@@ -25,6 +25,6 @@ def product(request, slug):
     product = Product.objects.filter(slug=slug)
     context = {
         'current_product': product,
-        'product_list': Product.objects.filter(slug=product),
+        # 'product_list': Product.objects.filter(slug=product),
         }
     return render(request, 'catalog/product.html', context)
