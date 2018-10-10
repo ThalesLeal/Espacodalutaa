@@ -1,1 +1,1 @@
-web: gunicorn espacodaluta.wsgi --log-file -
+web: gunicorn Espacodaluta.wsgi --log-file -
