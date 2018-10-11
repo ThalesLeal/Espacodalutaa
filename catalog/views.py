@@ -1,7 +1,6 @@
 # coding=utf-8
 
-from django.shortcuts import render,get_object_or_404
-
+from django.shortcuts import render
 from .models import Product, Category
 
 
@@ -24,7 +23,15 @@ def category(request, slug):
 def product(request, slug):
     product = Product.objects.filter(slug=slug)
     context = {
-        'current_product': product,
+        'product': product,
         # 'product_list': Product.objects.filter(slug=product),
         }
     return render(request, 'catalog/product.html', context)
+
+
+# def product(request, slug):
+#     product = Product.objects.get(slug=slug)
+#     context = {
+#         'product':product
+#     }
+#     return render(request, 'catalog/product.html', context)
