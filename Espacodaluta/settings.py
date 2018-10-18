@@ -38,7 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
+    #libs
+    'widget_tweaks',
+    # apps
     'core',
     'catalog',
 ]
@@ -55,6 +57,7 @@ MIDDLEWARE_CLASSES = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 ROOT_URLCONF = 'Espacodaluta.urls'
 
 TEMPLATES = [
@@ -137,6 +140,14 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 ALLOWED_HOSTS = ['*']
 
 STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
+
+# E-mail
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'espacodalutaa@gmail.com'
+EMAIL_HOST_PASSWORD = 'Abcd1231'
+GOOGLE_RECAPTCHA_SECRET_KEY='6Ld6lGYUAAAAAO15ipVsMZYQhZ0xEZ9iDPssfFMF'
 
 try:
     from.local_settings import *
