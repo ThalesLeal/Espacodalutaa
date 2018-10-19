@@ -149,6 +149,11 @@ EMAIL_HOST_USER = 'espacodalutaa@gmail.com'
 EMAIL_HOST_PASSWORD = 'Abcd1231'
 GOOGLE_RECAPTCHA_SECRET_KEY='6Ld6lGYUAAAAAO15ipVsMZYQhZ0xEZ9iDPssfFMF'
 
+# auth
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'index'
+LOGOUT_URL = 'logout'
+
 try:
     from.local_settings import *
 except ImportError:
