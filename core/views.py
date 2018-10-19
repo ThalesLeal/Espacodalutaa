@@ -10,9 +10,9 @@ from django.views.generic import View, TemplateView, CreateView
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import get_user_model
 from django.core.urlresolvers import reverse_lazy
+from models import Usuario
+from forms import UsuarioForm
 
-
-User = get_user_model()
 
 
 class IndexView(TemplateView):
@@ -36,13 +36,26 @@ def contact(request):
 
 
 
-class RegisterView(CreateView):
+# class RegisterView(CreateView):
 
-    form_class = UserCreationForm
-    template_name = 'register.html'
-    model = User
-    success_url = reverse_lazy('index')
-    # success_url = reverse_lazy('login')
+#     form_class = UsuarioForm
+#     template_name = 'register.html'
+#     model = Usuario
+#     success_url = reverse_lazy('index')
+#     # success_url = reverse_lazy('login')
+#
+# register = RegisterView.as_view()
 
 
-register = RegisterView.as_view()
+def usuario_create(request):
+
+    form = UsuarioForm()
+
+    if request.method == 'POST':
+        form = UsuarioForm(request.POST)
+
+        if form.is_valid():
+            usuario = form.save(commit=False)
+            ocorrencia.save()
+            messages.success(request, "Usuario Criado com sucesso.")
+            return render(request, "core/templates/register.html", locals())

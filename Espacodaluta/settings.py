@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'widget_tweaks',
     # apps
     'core',
+    'accounts',
     'catalog',
 ]
 
@@ -153,6 +154,7 @@ GOOGLE_RECAPTCHA_SECRET_KEY='6Ld6lGYUAAAAAO15ipVsMZYQhZ0xEZ9iDPssfFMF'
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'index'
 LOGOUT_URL = 'logout'
+AUTH_USER_MODEL = 'accounts.Usuario'
 
 try:
     from.local_settings import *
