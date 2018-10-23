@@ -10,7 +10,8 @@ from django.views.generic import View, TemplateView, CreateView
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import get_user_model
 from django.core.urlresolvers import reverse_lazy
-# from models import Usuario
+from accounts.models import *
+from .forms import *
 # from forms import UsuarioForm
 
 
