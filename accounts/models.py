@@ -5,15 +5,22 @@ from django.core import validators
 import re
 
 
-class Usuario(models.Model):
+# class Usuario(models.Model):
+
+from django.contrib.auth.models import AbstractBaseUser, UserManager, PermissionsMixin
+
+
+class Usuario(AbstractBaseUser, PermissionsMixin):
 
     name = models.CharField(max_length=100, blank=True)
     email = models.EmailField(max_length=30, unique=True)
     data_nascimento = models.DateField(null=True)
+
     logradouro = models.CharField(max_length=90, null=True, blank=True)
     numero = models.CharField(max_length=20, null=True, blank=True)
     cep = models.CharField(max_length=9, null=True, blank=True)
     complemento = models.CharField(max_length=20, null=True, blank=True)
+    telefone = models.CharField(max_length=12, null=True, blank=True)
     bairro = models.CharField(max_length=20, null=True, blank=True)
     cidade = models.CharField(max_length=100, null=True, blank=True)
     nome_mae = models.CharField(max_length=120,null=True,blank=True)
@@ -35,5 +42,20 @@ class Usuario(models.Model):
     USERNAME_FIELD = 'username'
     REQUIRED_FIELDS = ['email']
 
+    objects = UserManager()
+
+    class Meta:
+        verbose_name = 'Usuário'
+        verbose_name_plural = 'Usuários'
+
     def __str__(self):
-        return self.Nome
+        return self.name or self.username
+
+    def get_full_name(self):
+        return str(self)
+
+    def get_short_name(self):
+        return str(self).split(" ")[0]
+
+    # def __str__(self):
+    #     return self.Nome
