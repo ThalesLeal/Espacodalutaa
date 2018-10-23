@@ -18,7 +18,7 @@ class UserAdminCreationForm(UserCreationForm):
 
     class Meta:
         model = Usuario
-        fields = ['username', 'email','cep','logradouro','numero','complemento','telefone','bairro','cidade',
+        fields = ['username','name', 'email','cep','logradouro','numero','complemento','telefone','bairro','cidade',
                  'nome_mae','nome_pai','data_nascimento']
 
 

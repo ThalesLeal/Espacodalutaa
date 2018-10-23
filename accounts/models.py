@@ -4,7 +4,7 @@ from accounts.models import *
 from django.core import validators
 import re
 from django.contrib.auth.models import AbstractBaseUser, UserManager, PermissionsMixin
-# class Usuario(models.Model):
+# class Usuario(models.Model):.
 
 
 
@@ -12,7 +12,7 @@ from django.contrib.auth.models import AbstractBaseUser, UserManager, Permission
 
 class Usuario(AbstractBaseUser, PermissionsMixin):
 
-    name = models.CharField(max_length=100, blank=True)
+    name = models.CharField(max_length=100, blank=True,verbose_name='Nome')
     email = models.EmailField(max_length=30, unique=True)
     data_nascimento = models.DateField(null=True)
 
