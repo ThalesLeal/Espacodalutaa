@@ -1,8 +1,8 @@
 # coding=utf-8
-
 from django.shortcuts import render
 from django.http import HttpResponse
 from catalog.models import Category
+from accounts.models import Usuario
 from .forms import ContactForm
 from django.core.mail import send_mail
 from django.conf import settings
@@ -10,8 +10,9 @@ from django.views.generic import View, TemplateView, CreateView
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import get_user_model
 from django.core.urlresolvers import reverse_lazy
-from models import Usuario
-from forms import UsuarioForm
+# from models import Usuario
+# from forms import UsuarioForm
+
 
 
 
@@ -35,27 +36,12 @@ def contact(request):
     return render(request, 'contact.html', context)
 
 
+class RegisterView(CreateView):
 
-# class RegisterView(CreateView):
+    form_class = UsuarioForm
+    template_name = 'register.html'
+    model = Usuario
+    success_url = reverse_lazy('index')
+    # success_url = reverse_lazy('login')
 
-#     form_class = UsuarioForm
-#     template_name = 'register.html'
-#     model = Usuario
-#     success_url = reverse_lazy('index')
-#     # success_url = reverse_lazy('login')
-#
-# register = RegisterView.as_view()
-
-
-def usuario_create(request):
-
-    form = UsuarioForm()
-
-    if request.method == 'POST':
-        form = UsuarioForm(request.POST)
-
-        if form.is_valid():
-            usuario = form.save(commit=False)
-            ocorrencia.save()
-            messages.success(request, "Usuario Criado com sucesso.")
-            return render(request, "core/templates/register.html", locals())
+register = RegisterView.as_view()
