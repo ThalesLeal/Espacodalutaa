@@ -11,7 +11,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import get_user_model
 from django.core.urlresolvers import reverse_lazy
 from accounts.models import *
-from .forms import *
+from accounts.forms import *
 # from forms import UsuarioForm
 
 
