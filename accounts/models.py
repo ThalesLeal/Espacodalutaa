@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 from accounts.models import *
+from django.core import validators
+import re
 
 
 class Usuario(models.Model):
@@ -19,6 +21,19 @@ class Usuario(models.Model):
     is_staff = models.BooleanField('Equipe', default=False)
     is_active = models.BooleanField('Ativo', default=True)
     date_joined = models.DateTimeField('Data de Entrada', auto_now_add=True)
+    username = models.CharField(
+        'Apelido / Usuário', max_length=30, unique=True, validators=[
+            validators.RegexValidator(re.compile('^[\w.@+-]+$'),
+                'Informe um nome de usuário válido. '
+                'Este valor deve conter apenas letras, números '
+                'e os caracteres: @/./+/-/_ .'
+                , 'invalid'
+            )
+        ], help_text='Um nome curto que será usado para identificá-lo de forma única na plataforma'
+    )
+
+    USERNAME_FIELD = 'username'
+    REQUIRED_FIELDS = ['email']
 
     def __str__(self):
         return self.Nome
