@@ -3,11 +3,11 @@ from django.contrib.auth.models import User
 from accounts.models import *
 from django.core import validators
 import re
-
-
+from django.contrib.auth.models import AbstractBaseUser, UserManager, PermissionsMixin
 # class Usuario(models.Model):
 
-from django.contrib.auth.models import AbstractBaseUser, UserManager, PermissionsMixin
+
+
 
 
 class Usuario(AbstractBaseUser, PermissionsMixin):

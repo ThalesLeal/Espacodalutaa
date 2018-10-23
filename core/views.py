@@ -21,7 +21,6 @@ class IndexView(TemplateView):
 
     template_name = 'index.html'
 
-
 index = IndexView.as_view()
 
 def contact(request):
@@ -35,14 +34,3 @@ def contact(request):
         'success': success
     }
     return render(request, 'contact.html', context)
-
-
-class RegisterView(CreateView):
-
-    form_class = UsuarioForm
-    template_name = 'register.html'
-    model = Usuario
-    success_url = reverse_lazy('index')
-    # success_url = reverse_lazy('login')
-
-register = RegisterView.as_view()
