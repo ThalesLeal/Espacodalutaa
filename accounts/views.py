@@ -14,7 +14,6 @@ class IndexView(LoginRequiredMixin, TemplateView):
     template_name = 'accounts/index.html'
 
 
-
 class RegisterView(CreateView):
 
     model = Usuario
@@ -28,8 +27,8 @@ class UpdateUserView(LoginRequiredMixin, UpdateView):
     model = Usuario
     template_name = 'accounts/update_user.html'
     # fields = ['name', 'email']
-    fields = ['username','name', 'email','cep','logradouro','numero','complemento','telefone','bairro','cidade',
-             'nome_mae','nome_pai','data_nascimento']
+    fields = ['username','name', 'email','cep','logradouro','numero','complemento',
+             'telefone','bairro','cidade','nome_mae','nome_pai','data_nascimento']
 
     success_url = reverse_lazy('accounts:index')
 
@@ -48,6 +47,10 @@ class UpdatePasswordView(LoginRequiredMixin, FormView):
         kwargs['user'] = self.request.user
         return kwargs
 
+
+    def form_valid(self, form):
+        form.save()
+        return super(UpdatePasswordView, self).form_valid(form)
 
 index = IndexView.as_view()
 register = RegisterView.as_view()
