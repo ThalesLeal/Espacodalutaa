@@ -12,7 +12,7 @@ from django.contrib.auth import get_user_model
 from django.core.urlresolvers import reverse_lazy
 from accounts.models import *
 from accounts.forms import *
-# from forms import UsuarioForm
+from django.contrib import messages
 
 
 
@@ -29,6 +29,8 @@ def contact(request):
     if form.is_valid():
         form.send_mail()
         success = True
+    elif request.method == 'POST':
+        messages.error(request, 'Formulário inválido')
     context = {
         'form': form,
         'success': success

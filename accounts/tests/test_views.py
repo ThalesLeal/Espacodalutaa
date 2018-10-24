@@ -32,8 +32,6 @@ class RegisterViewTestCase(TestCase):
         self.assertFormError(response, 'form', 'email', 'Este campo é obrigatório.')
 
 
-
-
 class UpdateUserTestCase(TestCase):
 
     def setUp(self):

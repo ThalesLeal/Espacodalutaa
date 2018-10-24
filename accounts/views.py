@@ -8,7 +8,6 @@ from django.contrib.auth.forms import PasswordChangeForm
 
 
 
-
 class IndexView(LoginRequiredMixin, TemplateView):
 
     template_name = 'accounts/index.html'
