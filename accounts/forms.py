@@ -6,14 +6,6 @@ from accounts.models import Usuario
 from django.contrib.auth.forms import UserCreationForm
 
 
-class UsuarioForm(forms.Form):
-
-    class Meta:
-        model = Usuario
-        exclude = ['is_staff', 'is_active', 'date_joined']
-
-
-
 class UserAdminCreationForm(UserCreationForm):
 
     class Meta:
