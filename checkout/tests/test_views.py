@@ -1,5 +1,5 @@
 # coding=utf-8
-##
+
 from django.test import Client, TestCase
 from django.core.urlresolvers import reverse
 from django.conf import settings
