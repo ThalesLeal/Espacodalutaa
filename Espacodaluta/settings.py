@@ -28,6 +28,8 @@ DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
 
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
+
 
 # Application definition
 
