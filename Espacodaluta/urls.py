@@ -31,4 +31,4 @@ urlpatterns = [
     url(r'^conta/', include('accounts.urls', namespace='accounts')),
     url(r'^compras/', include('checkout.urls', namespace='checkout')),
     url(r'^admin/', admin.site.urls)
-    ]
+    ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
