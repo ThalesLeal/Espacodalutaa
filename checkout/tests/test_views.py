@@ -8,7 +8,7 @@ from model_mommy import mommy
 
 from checkout.models import CartItem
 
-#
+
 class CreateCartItemTestCase(TestCase):
 
     def setUp(self):
