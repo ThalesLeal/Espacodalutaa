@@ -1,0 +1,50 @@
+{% extends "accounts/index.html" %}
+
+{% load pagination %}
+
+{% block title %}
+Meus Pedidos
+{% endblock %}
+
+{% block accounts_container %}
+<h2>Area Do Aluno</h2>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>
+                ID
+            </th>
+            <th>
+                Nome
+            </th>
+            <th>
+                Mensalidade
+            </th>
+            <th>
+                Data
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for order in object_list %}
+        <tr>
+            <td>
+                <a class="btn-magnify" href="{% url 'checkout:order_detail' order.pk %} "title="Ver detalhes">#{{ order.pk }}
+                <span class="mdi mdi-magnify mdi-18px"></span>
+                </a>
+            </td>
+            <td>
+              {{ user }}
+              </td>
+            <td>
+                {{ order.get_status_display }}
+            </td>
+            <td>
+                {{ order.created|date:"d/m/Y" }}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% pagination request paginator page_obj %}
+{% endblock %}

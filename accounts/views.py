@@ -1,7 +1,8 @@
 from django.shortcuts import render
-from django.views.generic import CreateView,TemplateView,UpdateView,UpdateView,FormView
+from django.views.generic import CreateView,TemplateView,UpdateView,UpdateView,FormView,ListView
 from django.core.urlresolvers import reverse_lazy
 from .models import Usuario
+from checkout.models import Order
 from .forms import UserAdminCreationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.forms import PasswordChangeForm
@@ -51,7 +52,19 @@ class UpdatePasswordView(LoginRequiredMixin, FormView):
         form.save()
         return super(UpdatePasswordView, self).form_valid(form)
 
+
+class OrderListView(LoginRequiredMixin, ListView):
+
+    template_name = 'accounts/area_do_aluno.html'
+    success_url = reverse_lazy('accounts:index')
+    paginate_by = 10
+
+    def get_queryset(self):
+        return Order.objects.filter(user=self.request.user).order_by('pk')
+
+
 index = IndexView.as_view()
 register = RegisterView.as_view()
 update_user = UpdateUserView.as_view()
 update_password = UpdatePasswordView.as_view()
+order_list_aluno = OrderListView.as_view()
