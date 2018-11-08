@@ -172,7 +172,12 @@ MESSAGE_TAGS = {
     messages_constants.ERROR: 'danger',
 }
 
+PAGSEGURO_TOKEN = '10EF16C5EF4140399FCC070537A1FF2D'
+PAGSEGURO_EMAIL = 'thales.b.leall@gmail.com'
+PAGSEGURO_SANDBOX = True
 
+PAYPAL_TEST = True
+PAYPAL_EMAIL = 'thales.b.leall@gmail.com'
 
 try:
     from.local_settings import *
