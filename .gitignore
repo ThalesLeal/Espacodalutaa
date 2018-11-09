@@ -23,3 +23,5 @@ doc/**/*.log
 *.lot
 *.synctex.gz
 *.toc
+media/
+staticfiles/

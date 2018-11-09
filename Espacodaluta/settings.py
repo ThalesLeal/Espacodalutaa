@@ -28,8 +28,11 @@ DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
 
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
+# STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Application definition
 
@@ -91,16 +94,24 @@ WSGI_APPLICATION = 'Espacodaluta.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
+# DATABASES = {
+# 'default': {
+#     'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#     'NAME': 'Espacodaluta',
+#     'USER': 'postgres',
+#     'PASSWORD': 'abc1231',
+#     'HOST': 'localhost',
+#     'PORT': '5432',
+#     }
+# }
+
 DATABASES = {
-'default': {
-    'ENGINE': 'django.db.backends.postgresql_psycopg2',
-    'NAME': 'Espacodaluta',
-    'USER': 'postgres',
-    'PASSWORD': 'abc1231',
-    'HOST': 'localhost',
-    'PORT': '5432',
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
 
