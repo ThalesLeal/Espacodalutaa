@@ -175,11 +175,14 @@ MESSAGE_TAGS = {
 
 #em Dev
 PAGSEGURO_TOKEN = '4CD29C60D3D14E0CB8E75F7CEF766CA0'
+PAGSEGURO_SANDBOX = True
+PAGSEGURO_EMAIL = 'espacodalutaa@gmail.com'
 
 #em Produção
 # PAGSEGURO_TOKEN ='54E0B7930E7B45C7A23E76DB35188825'
-PAGSEGURO_EMAIL = 'thales.b.leall@gmail.com'
-PAGSEGURO_SANDBOX = True
+# PAGSEGURO_SANDBOX = False
+# PAGSEGURO_EMAIL = 'thales.b.leall@gmail.com'
+
 
 PAYPAL_TEST = True
 PAYPAL_EMAIL = 'espacodalutaa@gmail.com'
