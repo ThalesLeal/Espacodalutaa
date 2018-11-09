@@ -23,5 +23,6 @@ doc/**/*.log
 *.lot
 *.synctex.gz
 *.toc
+local_settings.py
 media/
 staticfiles/
